@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Page de couverture - style livre</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0e6d2; /* fond du site */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  #control-panel {
+    position: fixed; top: 10px; left: 10px;
+    background: rgba(255,255,255,0.8);
+    padding: 8px; border-radius: 4px;
+    z-index: 10;
+  }
+
+  /* zone centrale pour le livre */
+  #book-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* La "page" du livre */
+  .book-page {
+    width: 600px;
+    height: 800px;
+    background: #fff;
+    border: 3px solid #444;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Titre en haut de la page */
+  #page-title {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  /* Image de couverture */
+  #cover-image {
+    margin-top: 50px;
+    max-width: 80%;
+    height: auto;
+  }
+
+  /* Texte en bas de la page */
+  #page-text {
+    margin-top: auto;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  /* Bouton de début */
+  .start-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #444;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+<div id="control-panel">
+  <label>Couleur fond : <input type="color" id="bgColor" value="#f0e6d2" onchange="updateBackground()"></label>
+</div>
+
+<!-- Zone centrale avec la "page" de livre -->
+<div id="book-area">
+  <div class="book-page">
+    <h2 id="page-title">Ma couverture</h2>
+    <img src="cover.jpg" alt="Couverture" id="cover-image" />
+    <div id="page-text">Voici la première page du livre, une belle couverture.</div>
+    <a href="index2.html" class="start-button">Commencer la lecture</a>
+  </div>
+</div>
+
+<script>
+function updateBackground() {
+  document.body.style.backgroundColor = document.getElementById('bgColor').value;
+}
+window.onload = () => {
+  updateBackground();
+};
+</script>
+</body>
+</html>
